@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <title>Quick Stop Hotel: Contact Us</title>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-sm fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='logo.png')}}" height="30" width="41"/></a>
+            <div class="collapse navbar-collapse" id="Navbar">
+                <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="./"><span class="fa fa-home fa-lg"></span> Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./about"><span class="fa fa-info fa-lg"></span> About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./menu"><span class="fa fa-info fa-lg"> Menu</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="jumbotron">
+        <div class="container">
+            <div class="row row-header">
+                <div class="col-12 col-sm-6">
+                    <h1>Quick Stop Hotel</h1>
+                    <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
+                </div>
+                <div class="col-12 col-sm align-self-center">
+                    <img src="{{url_for('static', filename='logo.png')}}" height="230" width="141" class="img-fluid">
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+      {% with messages=get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category,message in messages %}
+              <div class="alert alert-{{ category }}">
+                {{ message }}
+
+              </div>       
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+        <div class="row">
+            <ol class="col-12 breadcrumb">
+                <li class="breadcrumb-item"><a href="./">Home</a></li>
+                <li class="breadcrumb-item active">Contact Us</li>
+            </ol>
+            <div class="col-12">
+               <h3>Contact Us</h3>
+               <hr>
+            </div>
+        </div>
+          
+        <div class="row row-content">
+           <div class="col-12">
+              <h3>Location Information</h3>
+           </div>
+            <div class="col-12 col-sm-4 offset-sm-1">
+                   <h5>Our Address</h5>
+                    <address style="font-size: 100%">
+		                 121, Clear Water Bay Road<br>
+                      Clear Water Bay, pune<br>
+                      india<br>
+		              <i class="fa fa-phone"></i>: +852 1234 5678<br>
+		              <i class="fa fa-fax"></i>: +852 8765 4321<br>
+		              <i class="fa fa-envelope"></i>:
+                        <a href="mailto:shubhamrangate15@gmail.com">shubhamrangate15@gmail.com</a>
+		           </address>
+            </div>
+            <div class="col-12 col-sm-6 offset-sm-1">
+                <!--<h5>Map of our Location</h5>-->
+            </div>
+            <div class="col-12 col-sm-11 offset-sm-1">
+                <div class="btn-group" role="group">
+                    <a  role="button" class="btn btn-primary" href="tel:+918600973045"><i class="fa fa-phone"></i> Call</a>
+                    
+                    <a  role="button" class="btn btn-success" href="mailto:shubhamrangate15@gmail.com"><i class="fa fa-envelope-o"></i> Email</a> 
+                
+
+                </div>   
+            </div>
+        </div>
+         <hr>
+        <div class="row row-content">
+
+           <div class="col-12">
+              <h3>Send us your Feedback</h3>
+           </div>
+            <div class="col-12 col-md-9">
+                <form class="form" method="POST" action="">
+                  {{ form.hidden_tag() }}
+                   <div class="form-group row">
+                      {{ form.username.label( class="col-md-2 col-form-label") }}
+                        <div class="col-md-10">
+                            {% if form.username.errors %}
+                               {{ form.username(class="form-control-sm is-invalid") }}
+                                <div class="invalid-feedback">
+                              {% for error in form.username.errors %}
+                                 <span>{{ error }}</span>
+                               {% endfor %}
+                             </div>
+                            {% else %}
+                              {{ form.username(class="form-control form-control-sm required") }}
+                           {% endif %} 
+                        </div>    
+                   </div> 
+                   <div class="form-group row">
+                      
+                           {{ form.mobno.label(class="col-md-2 col-form-label")  }}
+                        <div class="col-md-10">
+                            {% if form.mobno.errors %}
+                               {{ form.mobno(class="form-control-sm is-invalid") }}
+                                <div class="invalid-feedback">
+                              {% for error in form.mobno.errors %}
+                                 <span>{{ error }}</span>
+                               {% endfor %}
+                             </div>
+                            {% else %}
+                              {{ form.mobno(class="form-control form-control-sm required") }}
+                           {% endif %}  
+                        </div>                       
+                   </div>
+                   
+                   <div class="form-group row">
+                      
+                      {{ form.email.label(class="col-md-2 col-form-label") }}
+                        <div class="col-md-10">
+                            {% if form.email.errors %}
+                              {{ form.email(class="form-control-sm is-invalid") }}
+                              <div class="invalid-feedback">
+                               {% for error in form.email.errors %}
+                                 <span>{{ error }}</span>
+                                {% endfor %}
+                                </div>
+                              {% else %}
+                              {{ form.email(class="form-control form-control-sm required") }}
+                            {% endif %} 
+                        </div>                       
+                   </div>
+                      
+                    <div class="form-group row">
+                           {{ form.comment.label(class="col-md-2 col-form-label") }}
+                        <div class="col-md-10">
+                           
+                            {{ form.comment(class="rows=5") }}
+                        </div>
+                     </div> 
+                     <div class="form-group row">
+                         <div class="offset-sm-2 col-md-10">
+                             
+                              {{ form.submit(class="btn btn-success") }}
+                         </div>
+
+                     </div>                                            
+                </form>    
+            </div>
+             <div class="col-12 col-md">
+            </div>
+       </div>
+
+    </div>
+
+        <footer class="footer" style="background-color: rgb(82 71 82);color: #76e422">
+        <div class="container">
+            <div class="row">             
+                <div class="col-4 offset-1 col-sm-2">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="./" style="color: #76e422">Home</a></li>
+                        <li><a href="./about" style="color: #76e422">About</a></li>
+                        <li><a href="#" style="color: #76e422">Menu</a></li>
+                        <li><a href="./contact" style="color: #76e422">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-7 col-sm-5">
+                    <h5>Our Address</h5>
+                    <address>
+                      121, Clear Water Bay Road<br>
+                      Clear Water Bay, pune<br>
+                      india<br>
+                      <i class="fa fa-phone fa-lg"></i>: +852 1234 5678<br>
+                      <i class="fa fa-fax fa-lg"></i>: +852 8765 4321<br>
+                      <i class="fa fa-envelope fa-lg"></i>: <a href="mailto:shubhamrangate15@gmail.com" style="color: #76e422">shubhamrangate15@gmail.com</a>
+                   </address>
+                </div>
+                <div class="col-12 col-sm-4 align-self-center">
+                    <div class="text-center">
+                       <a href="" style="margin-right: 25px;"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/google-logo.png"/></a>
+                       <a href="mailto:shubhamrangate15@gmail.com" style="margin-right: 25px;"><i class="fa fa-envelope fa-lg" style="color: white"></i></a>
+                       <a href="http://www.facebook.com/profile.php?id="><img src="https://img.icons8.com/ios-glyphs/30/ffffff/facebook-circled--v2.png"/></a>
+                        
+                    </div>
+                </div>
+           </div>
+           <div class="row justify-content-center">             
+                <div class="col-auto">
+                    <p>© Copyright 2018 Quick Stop Hotel</p>
+                </div>
+           </div>
+        </div>
+    </footer>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
