@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quick Stop Hotel:Menus</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
+    <meta http-equiv="x-ua-compitable" content="ig=edge">
+   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+   <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+   <link rel="stylesheet" href="style.css"></head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	  <nav class="navbar navbar-dark bg-dark navbar-expand-sm fixed-top">
+      <div class="container">
+          <button class="navbar-toggler" type="button" data-toggler="collapse" data-target="#Navbar"> 
+               <span class="navbar-toggler-icon"></span>
+          </button> 
+          <div class="navbar-header">
+            <a class="navbar-brand mr-auto" href="#"><img src="{{url_for('static', filename='logo.png')}}" height="30" width="41"/></a> 
+          </div>            
+                <div class="collapse navbar-collapse" id="Navbar"> 
+                  <ul class="navbar-nav mr-auto">
+                      <li class="nav-item"><a class="nav-link" href="./"><span class="fa fa-home fa-lg"></span> Home</a></li>
+                      <li class="nav-item"><a class="nav-link" href="./about"><span class="fa fa-info fa-lg"> About</a></li>
+                      <li class="nav-item"><a class="nav-link" href="./menu"><span class="fa fa-info fa-lg"> Menu</a></li>
+                       <li class="nav-item"><a class="nav-link" href="./contact"><span class="fa fa-address-card fa-lg"> Contact</a></li>             </ul>
+                        <span class="navbar-text">
+                           {% if current_user.is_authenticated %}
+                              <a  href="./account">Account/</a>
+                               <a  href="./logout">Logout</a>
+                          {% else %}
+                             <a href="./login"><span class="fa fa-sign-in mr-5"></span> Login /</a>
+                           <a href="./register"><span class="fa fa-sign-up"></span> Sign Up</a>
+                         {% endif %}
+                        </span>
+                 </div>
+        </div> 
+
+    </nav><br><br><br>
+   
+   <div class="container">
+   	  <div id="accordion">
+       
+      <div class="card">
+      <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#collapseOne">
+          <h3>Menu-Utthapizza</h3>
+        </a>
+      </div>
+      <div id="collapseOne" class="collapse show" data-parent="#accordion">
+        <div class="card-body">
+          <div class="media border p-3">
+            <img src="{{url_for('static',filename='dosa.jfif')}}" class="mr-3 mt-3" style="width: 120px; height: 120px;">
+            <div class="media-body">
+             <h4>Uthhapiza <small><i>Combination of Uthappa and pizza</i></small><span class="badge badge-danger">HOT</span> <span class="badge badge-pill badge-secondary">$4.99</span></h4>
+             <p>A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine  cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.</p>      
+           </div>
+         </div>
+       </div>
+        </div>
+      
+    </div>
+
+       <div class="card">
+      <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#collapseTwo">
+          <h3>Menu-Dosa</h3>
+        </a>
+      </div>
+      <div id="collapseTwo" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          <div class="media border p-3">
+            <img src="{{url_for('static',filename='dosa.jfif')}}" class="mr-3 mt-3" style="width: 120px; height: 120px;">
+            <div class="media-body">
+             <h4>Dosa <small><i>Famouse south indian dish</i></small><span class="badge badge-danger">HOT</span> <span class="badge badge-pill badge-secondary">$2.00</span></h4>
+             <p>A dosai or dosa or dose is a thin pancake or crepe, originating from South India, made from a fermented batter predominantly consisting of lentils and rice. It is somewhat similar to a crepe in appearance, although savoury flavours are generally emphasized .</p>      
+           </div>
+         </div>
+       </div>
+        </div>
+      </div>
+    
+
+
+    <div class="card">
+      <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#collapseThree">
+          <h3>Menu-Idali</h3>
+        </a>
+      </div>
+      <div id="collapseThree" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+           <div class="media border p-3">
+         <img src="{{url_for('static',filename='idali.jpg')}}" class="mr-3 mt-3" style="width: 120px; height: 120px;">
+         <div class="media-body">
+           <h4>Idali <small><i>Be my speciest sambhar,I promise to be your Idali</i></small> <span class="badge badge-danger">HOT</span> <span class="badge badge-pill badge-secondary">$1.00</span></h4>
+           <p>A Southeast Asian cake made from rice and lentils, whose ground mixture is fermented and steamed in a mold.Idli is a round, fluffy bread roughly eight centimetres in diameter. </p>      
+        </div>
+      </div>
+       </div>
+        </div>
+      </div>
+    
+    <div class="card">
+      <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#collapseFour">
+          <h3>Menu-Cofee</h3>
+        </a>
+      </div class="card-body">
+      <div id="collapseFour" class="collapse" data-parent="#accordion">
+      	<div>
+         <div class="media border p-3">
+         <img src="{{url_for('static',filename='coffee.jpg')}}" class="mr-3 mt-3" style="width: 120px; height: 120px;">
+         <div class="media-body">
+           <h4>Cofee <small><i>Stressed, Blessed anad Cofee Obsessed </i></small> <span class="badge badge-danger">HOT</span> <span class="badge badge-pill badge-secondary">$1.00</span></h4>
+           <p>A Southeast Asian cake made from rice and lentils, whose ground mixture is fermented and steamed in a mold.Idli is a round, fluffy bread roughly eight centimetres in diameter. </p>      
+        </div>
+      </div>
+      </div>
+    </div>
+     </div> 
+     
+     <div class="card">
+      <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#collapseFour">
+         <h3> Menu-Uditvada</h3>
+        </a>
+      </div>
+      <div id="collapseFour" class="collapse" data-parent="#accordion">
+      	<div class="card-body">
+         <div class="media border p-3">
+         <img src="{{url_for('static',filename='udit_vada.jfif')}}" class="mr-3 mt-3" style="width: 120px; height: 120px;">
+         <div class="media-body">
+           <h4>UditVada <small><i>An home made medu vada</i></small> <span class="badge badge-danger">NEW</span><span class="badge badge-pill badge-secondary">$1.00</span></h4>
+           <p>Medu vada is a South Indian fritter made from Vigna mungo (black lentil or urad dal). It is usually made in a doughnut shape, with a crispy exterior and soft interior. A popular food item in South Indian and Sri Lankan Tamil cuisines, it is generally eaten as a breakfast or a snack. </p>      
+        </div>
+      </div>
+    </div>
+     </div> 
+     </div>
+   
+   </div><hr>
+   <br>
+   <div class="card">
+   	 <div class="card-header"><h3>MENU-LIST</h3>
+   	 </div>
+   <div class="card-body ml-3">
+   	    {% with messages=get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category,message in messages %}
+              <div class="alert alert-{{ category }}">
+                {{ message }}
+
+              </div>       
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+         <form class="form" method="POST" action="">
+                  {{ form.hidden_tag() }}
+                   <div class="form-group row">
+                      <b>{{ form.utthapizza.label() }}</b>
+                      {{ form.utthapizza() }}
+                   </div> 
+                   <div class="form-group row">
+                      <b>{{ form.dosa.label() }}</b>
+                      {{ form.dosa() }}
+                                       
+                   </div>
+                   
+                   <div class="form-group row">
+                      <b>{{ form.idali.label() }}</b>
+                      {{ form.idali() }}
+                                       
+                   </div>
+                      
+                    <div class="form-group row">
+                         <b>{{ form.cofee.label() }}</b>
+                      {{ form.cofee() }}
+                     </div> 
+
+                     <div class="form-group row">
+                         <b>{{ form.uditvada.label() }}</b>
+                      {{ form.uditvada() }}
+                     </div>
+
+                     <div class="form-group row">
+                         <div class="offset-sm-2 col-md-10">
+                             
+                              {{ form.submit(class="btn btn-success") }}
+                         </div>
+
+                     </div>                                                  
+                </form>
+               </div>
+
+        </div>
+   
+  </div>
+</body>
+</html>
